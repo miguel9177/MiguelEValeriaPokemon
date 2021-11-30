@@ -108,7 +108,7 @@
 -define:ENABLE_INPUT_SYSTEM
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
--r:"D:/MiguelEValeriaPokemon/MiguelEValeriaPokemon/Library/PackageCache/com.unity.visualscripting@1.6.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
+-r:"D:/MiguelValeriaPokemonGit/MiguelEValeriaPokemon/MiguelEValeriaPokemon/Library/PackageCache/com.unity.visualscripting@1.6.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
 -r:"D:/unity/Unity/2019.2.11f1/2021.1.20f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"D:/unity/Unity/2019.2.11f1/2021.1.20f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
 -r:"D:/unity/Unity/2019.2.11f1/2021.1.20f1/Editor/Data/Managed/UnityEngine/UnityEditor.dll"
@@ -344,7 +344,9 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/VSSettingsProvider.ref.dll"
 "Assets/Input Systems/PlayerInputActions.cs"
-"Assets/TestingInputSystem.cs"
+"Assets/scripts/MasterClass and testing/MasterClass.cs"
+"Assets/scripts/MasterClass and testing/TestingInputSystem.cs"
+"Assets/scripts/PlayerMovement.cs"
 -langversion:8.0
 
 /deterministic

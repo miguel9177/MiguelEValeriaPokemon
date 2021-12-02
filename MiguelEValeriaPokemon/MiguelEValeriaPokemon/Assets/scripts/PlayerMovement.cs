@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         //this will swicth the action map
         SwitchActionMap("Player");
-        Debug.Log(playerInput.currentActionMap);
+       
     }
 
     /// <summary>
@@ -44,10 +44,12 @@ public class PlayerMovement : MonoBehaviour
                 playerInputActions.UI.Disable();
                 break;
         }
+
+        Debug.Log(playerInput.currentActionMap);
     }
 
-    //this is gonna be called when the jump input happens, this is made on the player inputs, the callback context saves the information from the call, it has 3 phases pressed, hold and then release
-    public void Jump(InputAction.CallbackContext context)
+    //this is gonna be called when the action input happens, this is made on the player inputs, the callback context saves the information from the call, it has 3 phases pressed, hold and then release
+    public void Action(InputAction.CallbackContext context)
     {
         if (context.performed)
         { Debug.Log("Jump that only is called once" + context.phase); }

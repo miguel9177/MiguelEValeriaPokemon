@@ -17,7 +17,7 @@ public class TestingInputSystem : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         //this subscribes toi the jump function from player input, so now the jump function from this sript will be called when we click space
-        playerInputActions.Player.Jump.performed += Jump;
+        playerInputActions.Player.Action.performed += Jump;
 
 
       

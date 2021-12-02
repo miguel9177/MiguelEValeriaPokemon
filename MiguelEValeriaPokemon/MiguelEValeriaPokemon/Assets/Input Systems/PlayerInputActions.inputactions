@@ -6,7 +6,7 @@
             "id": "d34208b5-3ca6-467e-b6fb-fe31fa14478e",
             "actions": [
                 {
-                    "name": "Jump",
+                    "name": "Action",
                     "type": "Button",
                     "id": "7a78d448-4b09-4ddb-a19b-0c5095414927",
                     "expectedControlType": "Button",
@@ -30,7 +30,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Jump",
+                    "action": "Action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -41,7 +41,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Jump",
+                    "action": "Action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -52,7 +52,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Touch",
-                    "action": "Jump",
+                    "action": "Action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -113,22 +113,22 @@
                 },
                 {
                     "name": "",
-                    "id": "42edc57c-8781-4db1-8a87-ca72a64f6d7c",
-                    "path": "",
+                    "id": "19075465-0b71-4c46-897d-074ee50bdc97",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Touch",
+                    "groups": "Gamepad",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "19075465-0b71-4c46-897d-074ee50bdc97",
+                    "id": "713e462c-2832-4c32-b3f2-dc112a08e2db",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Touch",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false

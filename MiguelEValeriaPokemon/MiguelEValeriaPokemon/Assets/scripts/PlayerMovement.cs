@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     /// this function will change the current action map
     /// </summary>
     /// <param name="actionMapToChangeTo">UI or Player</param>
-    void SwitchActionMap(string actionMapToChangeTo)
+    public void SwitchActionMap(string actionMapToChangeTo)
     {
         //if i want to change the action map to ui, change it, if i want to player change
         switch (actionMapToChangeTo)
@@ -52,8 +52,13 @@ public class PlayerMovement : MonoBehaviour
     public void Action(InputAction.CallbackContext context)
     {
         if (context.performed)
-        { Debug.Log("Jump that only is called once" + context.phase); }
-        Debug.Log("Jump" + context.phase);
+        { Debug.Log("Action that only is called once" + context.phase); }
+        Debug.Log("Action" + context.phase);
+    }
+    void MoveCharacter()
+    {
+        //Move the character using the vector 2 from left analogue
+        MasterClassExtensionMethod.PhysicCodes.Movements.MovePositionRigidBody2D(this.gameObject, playerInputActions.Player.Movement.ReadValue<Vector2>(), speed);
     }
 
     //this will be active when we are at a ui section
@@ -62,10 +67,10 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Ui Submit" + context.phase);
     }
 
-    void MoveCharacter()
+    //this will return the movement of the analogue while in UI Mode
+    public Vector2 UIMoveBetweenOpuions()
     {
-        //Move the character using the vector 2 from left analogue
-        MasterClassExtensionMethod.PhysicCodes.Movements.MovePositionRigidBody2D(this.gameObject, playerInputActions.Player.Movement.ReadValue<Vector2>(), speed);
+       return playerInputActions.UI.Movement.ReadValue<Vector2>();
     }
 
     // Update is called once per frame

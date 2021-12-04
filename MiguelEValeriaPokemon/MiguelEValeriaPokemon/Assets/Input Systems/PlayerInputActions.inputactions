@@ -20,6 +20,14 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "PauseMenu",
+                    "type": "Button",
+                    "id": "14becb13-93bb-45af-8100-21d016a1789c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -37,7 +45,7 @@
                 {
                     "name": "",
                     "id": "0e8a3946-2568-469f-b66f-36e900b61848",
-                    "path": "",
+                    "path": "<Mouse>/press",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -47,8 +55,8 @@
                 },
                 {
                     "name": "",
-                    "id": "e287f7d0-d3c6-41ec-a839-0b0d9c2b925c",
-                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "id": "e566eb4d-9230-4a3b-a584-b4c64d0e5d9c",
+                    "path": "<Touchscreen>/touch8/tap",
                     "interactions": "",
                     "processors": "",
                     "groups": "Touch",
@@ -130,6 +138,39 @@
                     "processors": "",
                     "groups": "Touch",
                     "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b29bf70-0137-44d0-9b67-18d2049b2de6",
+                    "path": "<Touchscreen>/touch6/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touch",
+                    "action": "PauseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "727def08-60b0-4732-b3c7-13f568b1e7b5",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PauseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "87adddea-27f4-40c4-85ef-d6f349a1d5ad",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "PauseMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

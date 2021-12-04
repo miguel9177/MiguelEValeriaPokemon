@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
     //this is used to switch the active map, or edit a parameter from the player input from this object
     private PlayerInput playerInput;
 
+    [SerializeField]
+    //get the menu game object
+    Menu menu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,23 +56,37 @@ public class PlayerMovement : MonoBehaviour
     public void Action(InputAction.CallbackContext context)
     {
         if (context.performed)
-        { Debug.Log("Action that only is called once" + context.phase); }
+        { this.gameObject.transform.SetPositionAndRotation(new Vector3(0, 0, 0), new Quaternion()); }
         Debug.Log("Action" + context.phase);
     }
+
+    //this will move the character by getting the left analogue position
     void MoveCharacter()
     {
         //Move the character using the vector 2 from left analogue
         MasterClassExtensionMethod.PhysicCodes.Movements.MovePositionRigidBody2D(this.gameObject, playerInputActions.Player.Movement.ReadValue<Vector2>(), speed);
     }
-
+    public void PauseButton(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        { menu.MenuPause();  }
+        
+        Debug.Log("Pause" + context.phase);
+    }
     //this will be active when we are at a ui section
     public void UISubmit(InputAction.CallbackContext context)
     {
         Debug.Log("Ui Submit" + context.phase);
     }
 
+    //this will return the Current Action Map
+    public string ReturnCurrentActionMap()
+    {
+        return playerInput.currentActionMap.name;
+    }
+
     //this will return the movement of the analogue while in UI Mode
-    public Vector2 UIMoveBetweenOpuions()
+    public Vector2 ReturnUiAnalogico()
     {
        return playerInputActions.UI.Movement.ReadValue<Vector2>();
     }

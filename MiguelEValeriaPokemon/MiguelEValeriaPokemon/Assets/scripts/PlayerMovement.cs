@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
         if (context.performed)
         { menu.MenuPause();  }
         
-        Debug.Log("Pause" + context.phase);
+       
     }
     //this will be active when we are at a ui section
     public void UISubmit(InputAction.CallbackContext context)

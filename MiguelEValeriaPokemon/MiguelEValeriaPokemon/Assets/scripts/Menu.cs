@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
+    [SerializeField]
+    Text testdebugger;
 
-  
-
+    int i = 0;
     [Header("ADD PLAYER OBJECT THAT HAS PLAYER SCRIPT HERE")]
     [SerializeField]
     //this will get the player script
@@ -27,6 +28,9 @@ public class Menu : MonoBehaviour
     //this will do the pause menu by switching the action map and activating the menu
     public void MenuPause()
     {
+        i = i + 1;
+        testdebugger.text = ""+i;
+        Debug.Log("MENU PAUSE");
         if (PauseMenu.activeSelf == false)
         {
             //this will switch the action map to the ui

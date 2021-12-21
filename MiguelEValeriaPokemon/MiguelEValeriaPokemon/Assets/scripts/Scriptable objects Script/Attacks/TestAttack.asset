@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a67846180ee7f794fbe44f35a632a38a, type: 3}
+  m_Name: TestAttack
+  m_EditorClassIdentifier: 
+  damage: 60
+  conditionDamageToSend: 0
+  attackDescription: 'Gives normal damage.
+
+    Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Consequat nisl vel pretium lectus. Bibendum est ultricies integer quis auctor
+    elit sed. Ut placerat orci nulla pellentesque. Quisque non tellus orci ac auctor
+    augue mauris augue neque. Nunc mi ipsum faucibus vitae aliquet. Diam maecenas
+    ultricies mi eget mauris pharetra et. Vitae auctor eu augue ut lectus arcu bibendum
+    at varius. Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus.
+    Semper feugiat nibh sed pulvinar. Viverra nibh cras pulvinar mattis nunc sed
+    blandit libero volutpat. Eget sit amet tellus cras adipiscing enim.'
+  name: TestAttack
+  typeOfAttack: 0
+  damageType: 1

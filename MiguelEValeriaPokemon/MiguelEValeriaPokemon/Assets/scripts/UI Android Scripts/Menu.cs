@@ -14,10 +14,7 @@ public class Menu : MonoBehaviour
     [SerializeField]
     //this will get the player script
     PlayerMovement playerScript;
-    [Header("add the Pause Menu GameObject here, the object to hide and show")]
-    [SerializeField]
-    //this will get the Pause Menu GameObject
-    GameObject PauseMenu;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -31,21 +28,22 @@ public class Menu : MonoBehaviour
         i = i + 1;
         testdebugger.text = ""+i;
         Debug.Log("MENU PAUSE");
-        if (PauseMenu.activeSelf == false)
+        //if the pause menu canvas is deactivated, i use scale because i cannot hide a ui, since it will give me an error because of the new input system
+        if (playerScript.uiManager.pauseMenuCanvasGameObject.transform.localScale.x <= 0)
         {
             //this will switch the action map to the ui
             playerScript.SwitchActionMap("UI");
-            //make the first button be selected
-            PauseMenu.transform.GetChild(0).GetComponent<Button>().Select();
             //get the first child AND ACTIVATES IT (menu ui)
-            PauseMenu.SetActive(true);
+            playerScript.uiManager.ShowPauseMenuCanvas();
+            
+            
         }
         else
         {
             //this will switch the action map to the Player
             playerScript.SwitchActionMap("Player");
             //get the first child and deactivate it
-            PauseMenu.SetActive(false);
+            playerScript.uiManager.ShowPlayerCanvas();
         }
         
     }

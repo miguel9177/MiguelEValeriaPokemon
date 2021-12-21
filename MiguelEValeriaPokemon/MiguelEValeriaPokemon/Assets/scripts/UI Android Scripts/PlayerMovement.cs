@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 using MasterClassExtensionMethod;
 public class PlayerMovement : MonoBehaviour
 {
+    //this wil store the uiManager
+    public UiManager uiManager;
     [SerializeField]
     float speed=5;
     //this will create a instance of the script automatically created by input actions
@@ -14,7 +16,12 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     //get the menu game object
-    Menu menu;
+    Menu pauseMenu;
+
+    //this is true if the player is inside a trigger
+    bool isTriggering;
+    //this will save the last object that was triggered
+    Collider2D objectTriggering;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +63,18 @@ public class PlayerMovement : MonoBehaviour
     public void Action(InputAction.CallbackContext context)
     {
         if (context.performed)
-        { this.gameObject.transform.SetPositionAndRotation(new Vector3(0, 0, 0), new Quaternion()); }
+        {  
+            //if we are triggering 
+            if(isTriggering==true && objectTriggering!=null)
+            {
+                //if the object triggering is a npc and he has a dialogue
+                if(objectTriggering.gameObject.tag=="NPC" && objectTriggering.gameObject.GetComponent<DialogueManager>() == true)
+                {
+                    objectTriggering.gameObject.GetComponent<DialogueManager>().NextDialogue(this);
+                    Debug.Log("Npc Talk Started" + objectTriggering.gameObject.name);
+                }
+            }
+        }
         Debug.Log("Action" + context.phase);
     }
 
@@ -69,7 +87,9 @@ public class PlayerMovement : MonoBehaviour
     public void PauseButton(InputAction.CallbackContext context)
     {
         if (context.performed)
-        { menu.MenuPause();  }
+        {
+            pauseMenu.MenuPause();
+        }
         
        
     }
@@ -89,6 +109,21 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 ReturnUiAnalogico()
     {
        return playerInputActions.UI.Movement.ReadValue<Vector2>();
+    }
+
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        //say that the user is triggering and then save wich object is it
+        isTriggering = true;
+        objectTriggering = col;
+        
+    }
+    void OnTriggerExit2D(Collider2D col)
+    {
+        //reset the triggering objects since we are no longer trigerring
+        isTriggering = false;
+        objectTriggering = null;
     }
 
     // Update is called once per frame

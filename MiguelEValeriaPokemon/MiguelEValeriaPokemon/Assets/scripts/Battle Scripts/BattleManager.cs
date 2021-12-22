@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 //this will create a enum that will save the current battle state
 enum BattleState { start, playerTurn, enemyTurn, won, lost };
 public class BattleManager : MonoBehaviour
@@ -9,11 +11,11 @@ public class BattleManager : MonoBehaviour
     ///THIS PART OF THE CODE IS TO GET THE UI ELEMENTS 
     /// </summary>
     [SerializeField]
-    Text[] textAttacks;
+    TextMeshProUGUI[] textAttacks;
     [SerializeField]
-    Text[] textSpecialAttack;
+    TextMeshProUGUI[] textSpecialAttack;
 
-
+    
 
 
     //this will store both trainers fighting

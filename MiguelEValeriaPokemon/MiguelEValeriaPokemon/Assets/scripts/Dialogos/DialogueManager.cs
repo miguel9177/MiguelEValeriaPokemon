@@ -4,7 +4,8 @@ using UnityEngine;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
-{
+{   
+    [Header("IF THIS DIALOGUE IS GOING TO HAVE A BATTLE THIS GAMEOBJECT NEEDS A BattleInitializer SCRIPT")]
     [SerializeField]
     //this will store the chats for this npcs
     Dialogue[] NpcChat;
@@ -36,11 +37,23 @@ public class DialogueManager : MonoBehaviour
             {
                 //Change the text of the ui
                 textToChange.text = NpcChat[currentNpcChat].dialogue;
-                //show the battle canvas
-                player.uiManager.ShowBattleCanvas();
-                //Start the battle
-                this.gameObject.GetComponent<BattleInitializer>().StartBattle();
-                
+                //this will check if the npc has a battle initializer script, i do this to avoid errors in case i forget to add a battle initializer to this object
+                if(this.gameObject.GetComponent<BattleInitializer>() == true)
+                {
+                    //Start the battle
+                    this.gameObject.GetComponent<BattleInitializer>().StartBattle();
+                    //show the battle canvas
+                    player.uiManager.ShowBattleCanvas();
+                }
+                else
+                {
+                    //hide the text
+                    textToChange.gameObject.SetActive(false);
+                    currentNpcChat = 0;
+                    player.uiManager.ShowPlayerCanvas();
+                    Debug.LogWarning("THE NPC " + this.name + " PROBABLY NEEDS A BATTLE INITIALIZER, SINCE IT HAS A DIALOGUE THAT STARTS A BATTLE");
+                }
+
             }
             currentNpcChat += 1;
         }

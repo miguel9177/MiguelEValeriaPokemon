@@ -15,7 +15,27 @@ public class BattleManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI[] textSpecialAttack;
 
-    
+    [Header("IN HERE I HAVE TO ADD ALL THE TEXTS AND SPRITES FOR THE PLAYER TRAINER AND MONSTER")]
+    //player trainer Variables
+    [SerializeField]
+    TextMeshProUGUI playerTrainerNameText;
+    [SerializeField]
+    TextMeshProUGUI playerTrainerMonsterNameText;
+    [SerializeField]
+    Image playerTrainerMonsterHpBarImage;
+    [SerializeField]
+    Image playerTrainerMonsterSpriteImage;
+    [Header("IN HERE I HAVE TO ADD ALL THE TEXTS AND SPRITES FOR THE ENEMY TRAINER AND MONSTER")]
+    //Enemy trainer Variables
+    [SerializeField]
+    TextMeshProUGUI enemyTrainerNameText;
+    [SerializeField]
+    TextMeshProUGUI enemyTrainerMonsterNameText;
+    [SerializeField]
+    Image enemyTrainerMonsterHpBarImage;
+    [SerializeField]
+    Image enemyTrainerMonsterSpriteImage;
+
 
 
     //this will store both trainers fighting
@@ -45,7 +65,24 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        
+        //display the player trainer name
+        playerTrainerNameText.text = playerTrainer.name;
+        //display the player monster name
+        playerTrainerMonsterNameText.text = playerTrainer.trainerMonsters[0].monster.name;
+        //display the player monster hp
+        playerTrainerMonsterHpBarImage.fillAmount = playerTrainer.trainerMonsters[0].monster.hp;
+        //display the player monster sprite
+        playerTrainerMonsterSpriteImage.sprite = playerTrainer.trainerMonsters[0].monster.image;
+
+        //display the enemy trainer name
+        enemyTrainerNameText.text = enemyTrainer.name;
+        //display the enemy monster name
+        enemyTrainerMonsterNameText.text = enemyTrainer.trainerMonsters[0].monster.name;
+        //display the player monster hp
+        enemyTrainerMonsterHpBarImage.fillAmount = 0.5f;
+        //display the enemy monster sprite
+        enemyTrainerMonsterSpriteImage.sprite = enemyTrainer.trainerMonsters[0].monster.image;
+
 
         //tell the code that the battle has started
         battleState = BattleState.start;

@@ -328,7 +328,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17.9
+  m_fontSize: 13.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -816,7 +816,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17.9
+  m_fontSize: 13.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1176,7 +1176,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 433849476}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 750798677}
+        m_TargetAssemblyTypeName: BattleManager, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &433849476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1269,7 +1281,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.409564
+  orthographic size: 14.299158
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2124,6 +2136,7 @@ GameObject:
   - component: {fileID: 750798676}
   - component: {fileID: 750798677}
   - component: {fileID: 750798678}
+  - component: {fileID: 750798679}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2187,6 +2200,18 @@ MonoBehaviour:
   pauseMenuCanvasGameObject: {fileID: 1084153324}
   battleCanvasGameObject: {fileID: 796874579}
   playerCanvasGameObject: {fileID: 190012397}
+--- !u!114 &750798679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750798675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc544faac149192488d2b16b102fb5bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &769753754
 GameObject:
   m_ObjectHideFlags: 0
@@ -2319,7 +2344,6 @@ GameObject:
   - component: {fileID: 784146217}
   - component: {fileID: 784146221}
   - component: {fileID: 784146220}
-  - component: {fileID: 784146219}
   - component: {fileID: 784146218}
   m_Layer: 5
   m_Name: Monster1 Image
@@ -2345,7 +2369,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 89.869286, y: 89.869286}
+  m_SizeDelta: {x: 46.56863, y: 46.56863}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &784146218
 MonoBehaviour:
@@ -2360,19 +2384,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammountToDivideByScreenWidth: 6.12
---- !u!114 &784146219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784146216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ControlPath: <Touchscreen>/touch6/tap
 --- !u!114 &784146220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2527,7 +2538,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.3
+  m_fontSize: 16.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2995,7 +3006,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 99
   m_TargetDisplay: 0
 --- !u!1 &1218578643
 GameObject:
@@ -3079,7 +3090,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1218578646}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 750798677}
+        m_TargetAssemblyTypeName: BattleManager, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1218578646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3289,7 +3312,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 40.892193, y: 40.892193}
+  m_SizeDelta: {x: 21.18959, y: 21.18959}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1303613971
 MonoBehaviour:
@@ -4170,7 +4193,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 99
   m_TargetDisplay: 0
 --- !u!1 &1580715158
 GameObject:
@@ -5085,7 +5108,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1813767974}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 750798677}
+        m_TargetAssemblyTypeName: BattleManager, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1813767974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5416,7 +5451,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.3
+  m_fontSize: 16.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5747,7 +5782,6 @@ GameObject:
   - component: {fileID: 2058864046}
   - component: {fileID: 2058864050}
   - component: {fileID: 2058864049}
-  - component: {fileID: 2058864048}
   - component: {fileID: 2058864047}
   m_Layer: 5
   m_Name: Monster2 Image
@@ -5773,7 +5807,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 89.869286, y: 89.869286}
+  m_SizeDelta: {x: 46.56863, y: 46.56863}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2058864047
 MonoBehaviour:
@@ -5788,19 +5822,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammountToDivideByScreenWidth: 6.12
---- !u!114 &2058864048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058864045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ControlPath: <Touchscreen>/touch6/tap
 --- !u!114 &2058864049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7865,7 +7886,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 40.892193, y: 40.892193}
+  m_SizeDelta: {x: 21.18959, y: 21.18959}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4222137440703938740
 MonoBehaviour:
@@ -8048,7 +8069,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 40.892193, y: 40.892193}
+  m_SizeDelta: {x: 21.18959, y: 21.18959}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4222137440940363739
 GameObject:

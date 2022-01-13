@@ -88,6 +88,32 @@ namespace MasterClassExtensionMethod
                 objectToMove_.GetComponent<Rigidbody2D>().MovePosition(new Vector2(objectToMove_.transform.position.x, objectToMove_.transform.position.y) + forceToAdd * Time.deltaTime * speed_);
             }
         }
+
+        public class Collisions : MonoBehaviour
+        {
+            public delegate void FunctionToBeCalledWhenObjectCollided();
+            public static void CheackIfCollidedWithObject (FunctionToBeCalledWhenObjectCollided functionToCall)
+            { //este codigo esta no projeto master class no pc ingles, ta a funcionar la mas aqui n
+              }
+        }
+    }
+
+    public class RecallFunctionWhenSomethingHappen
+    {
+        public delegate void FunctionToBeCalledWhenTimePassed();
+
+        public static IEnumerator WaitSecondsThenReturn(FunctionToBeCalledWhenTimePassed functionToCall, float timeToWait)
+        {
+            
+
+            //yield on a new YieldInstruction that waits for 5 seconds.
+            yield return new WaitForSeconds(timeToWait);
+
+            functionToCall();
+            
+        }
+
+        
     }
 
     public class MathematicalReturnsCodes : MonoBehaviour

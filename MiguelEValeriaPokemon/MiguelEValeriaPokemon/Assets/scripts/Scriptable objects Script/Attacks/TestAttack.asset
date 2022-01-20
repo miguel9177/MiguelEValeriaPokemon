@@ -28,3 +28,5 @@ MonoBehaviour:
   name: TestAttack
   typeOfAttack: 0
   damageType: 1
+  attackElement: 0
+  animToPlayWhenAttackIsUsed: {fileID: 7400000, guid: 8c5721ffe10c8ab48b22f63d9ebfcd1d, type: 2}

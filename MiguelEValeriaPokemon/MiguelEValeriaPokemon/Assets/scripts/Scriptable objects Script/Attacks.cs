@@ -23,4 +23,6 @@ public class Attacks : ScriptableObject
     public AttackDamageType damageType;
     //this will create a dropdown with the element of the attack (fire, ocean etc)
     public MonsterType attackElement;
+
+    public AnimationClip animToPlayWhenAttackIsUsed;
 }

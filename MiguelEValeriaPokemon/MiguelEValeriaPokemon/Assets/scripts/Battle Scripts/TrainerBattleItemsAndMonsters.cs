@@ -23,6 +23,10 @@ public class TrainerBattleItemsAndMonsters : MonoBehaviour
         public int rangeDamageToIncrease;
         public int meleeDamageToIncrease;
 
+        //this integer will store the current hp of the monster
+        [Header("this variable can be 0 bcause its set at the start function")]
+        public int currentHp;
+
         public int ReturnMonsterHp() { return hpToIncrease + monster.hp; }
         public int ReturnMonsterAcuracy() { return acuracyToIncrease + monster.accuracy; }
         public int ReturnMonsterSpeed() { return speedToIncrease + monster.speed; }
@@ -33,8 +37,20 @@ public class TrainerBattleItemsAndMonsters : MonoBehaviour
     }
 
     public TrainerMonsters[] trainerMonsters;
-    
-    
-    
+
+    private void Start()
+    {
+        //this i is used to loop trough the items on the trainer monsters array.
+        int i = 0;
+        //this foreach will set the current hp of every monster
+        foreach (TrainerMonsters x in trainerMonsters)
+        {
+            //set the current hp for every monster
+            trainerMonsters[i].currentHp = x.hpToIncrease + x.monster.hp;
+            i = i + 1;
+        }
+    }
+
+
 
 }

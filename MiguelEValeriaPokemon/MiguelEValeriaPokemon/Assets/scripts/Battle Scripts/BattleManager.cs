@@ -57,10 +57,15 @@ public class BattleManager : MonoBehaviour
     int currentPlayerMonster = 0;
     int currentEnemyMonster = 0;
 
+    //this will store the initial hp of the enemy monster and 
+    int startingPlayerHp = 0;
+    int startingEnemyHp = 0;
+
     private void Start()
     {
         //assigns the script attack functionalities to the variable
         attackFunctionalitiesScript = this.gameObject.GetComponent<AttackFunctionalities>();
+
     }
 
     // this is called when the battle starts, and it setts up the battle
@@ -85,8 +90,6 @@ public class BattleManager : MonoBehaviour
         playerTrainerNameText.text = playerTrainer.name;
         //display the player monster name
         playerTrainerMonsterNameText.text = playerTrainer.trainerMonsters[0].monster.name;
-        //display the player monster hp
-        playerTrainerMonsterHpBarImage.fillAmount = playerTrainer.trainerMonsters[0].monster.hp;
         //display the player monster sprite
         playerTrainerMonsterSpriteImage.sprite = playerTrainer.trainerMonsters[0].monster.image;
 
@@ -94,16 +97,17 @@ public class BattleManager : MonoBehaviour
         enemyTrainerNameText.text = enemyTrainer.name;
         //display the enemy monster name
         enemyTrainerMonsterNameText.text = enemyTrainer.trainerMonsters[0].monster.name;
-        //display the player monster hp
-        enemyTrainerMonsterHpBarImage.fillAmount = enemyTrainer.trainerMonsters[0].monster.hp;
         //display the enemy monster sprite
         enemyTrainerMonsterSpriteImage.sprite = enemyTrainer.trainerMonsters[0].monster.image;
 
+        //display the hp bar
+        UpdateHpBar();
 
         //StartCoroutine(MasterClassExtensionMethod.RecallFunctionWhenSomethingHappen.WaitSecondsThenReturn(test, 2f));
         
         Debug.Log("Battle Started");
 
+    
     }
 
     //this function will be called when an attack button is pressed
@@ -111,7 +115,51 @@ public class BattleManager : MonoBehaviour
     {
         Debug.Log("The attack " + playerTrainer.trainerMonsters[currentPlayerMonster].attacks[buttonPressedIndex].name +" was pressed" );
         //sends the information about the attack,it sends the attack, the player monster, enemy monster and a boolean that is true if it was the player attacking
-        attackFunctionalitiesScript.ReceiveInformationAboutTheAttack(playerTrainer.trainerMonsters[currentPlayerMonster].attacks[buttonPressedIndex], playerTrainer.trainerMonsters[currentPlayerMonster], enemyTrainer.trainerMonsters[currentEnemyMonster], false);
+        attackFunctionalitiesScript.ReceiveInformationAboutTheAttack(playerTrainer.trainerMonsters[currentPlayerMonster].attacks[buttonPressedIndex], playerTrainer.trainerMonsters[currentPlayerMonster], enemyTrainer.trainerMonsters[currentEnemyMonster], true);
+    }
+
+    //this function is called by the attack functionalities and its used to give damage, the playerAttacked Boolean is true if its the player attacking and false if its the enemy attacking
+    public void GiveDamage(float hpLeft, bool playerAttacked)
+    {
+        //if the player has attacked
+        if(playerAttacked==true)
+        {
+            enemyTrainer.trainerMonsters[currentEnemyMonster].currentHp = (int)hpLeft;
+            UpdateHpBar();
+        }
+        //if the enemy has attacked
+        else 
+        {
+            playerTrainer.trainerMonsters[currentPlayerMonster].currentHp = (int)hpLeft;
+            UpdateHpBar();
+        }
+    }
+
+    void UpdateHpBar()
+    {
+        /*
+         * THE FORMULA TO DO THE PERCENTAGE FOR THE HP IS :
+         * y = currentX/maxX; y = y * 100; y = y / 100;
+         * */
+
+        //the percentageOfHp will be used to get the percent of the hp, on the formula this is the y
+        float percentageOfHp;
+
+        /*START OF UPDATING THE PLAYER HP BAR*/
+        percentageOfHp = (float)playerTrainer.trainerMonsters[currentPlayerMonster].currentHp / (float)playerTrainer.trainerMonsters[currentPlayerMonster].ReturnMonsterHp();
+        percentageOfHp = percentageOfHp * 100;
+        percentageOfHp = percentageOfHp / 100;
+        playerTrainerMonsterHpBarImage.fillAmount = percentageOfHp;
+        /*END OF UPDATING THE PLAYER HP BAR*/
+
+        percentageOfHp = 0.0f; //reset the variable to reuse it for the enemy
+
+        /*START OF UPDATING THE ENEMY HP BAR*/
+        percentageOfHp = (float)enemyTrainer.trainerMonsters[currentEnemyMonster].currentHp / (float)enemyTrainer.trainerMonsters[currentEnemyMonster].ReturnMonsterHp();
+        percentageOfHp = percentageOfHp * 100;
+        percentageOfHp = percentageOfHp / 100;
+        enemyTrainerMonsterHpBarImage.fillAmount = percentageOfHp;
+        /*END OF UPDATING THE ENEMY HP BAR*/
     }
 
     void test()
